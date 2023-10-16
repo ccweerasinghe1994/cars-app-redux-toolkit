@@ -6,18 +6,26 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'plugin:@typescript-eslint/recommended'
+		'plugin:@typescript-eslint/recommended-type-checked',
+		'plugin:react-hooks/recommended',
+		'plugin:jsx-a11y/recommended',
+		'plugin:import/recommended',
+		'plugin:promise/recommended',
+		'plugin:react/jsx-runtime',
 	],
 	'overrides': [
 	],
 	'parser': '@typescript-eslint/parser',
 	'parserOptions': {
 		'ecmaVersion': 'latest',
-		'sourceType': 'module'
+		'sourceType': 'module',
+		project: true,
+		tsconfigRootDir: __dirname,
 	},
 	'plugins': [
 		'react',
-		'@typescript-eslint'
+		'@typescript-eslint',
+		'prettier'
 	],
 	'rules': {
 		'indent': [
@@ -35,6 +43,16 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
+		],
+		'prettier/prettier': 'error',
+	},
+	settings: {
+		react: {
+			version: '18.2.0',
+		},
+	},
+	'globals': {
+		'module': 'writable',
+
 	}
 };
